@@ -1,3 +1,5 @@
+# Lily base config: https://github.com/KMKfw/kmk_firmware/blob/master/boards/lily58/main.py
+# Base key reference: https://github.com/KMKfw/kmk_firmware/blob/a309aa52f3b09309aa989f92de3ccc3537b996c8/kmk/keys.py
 from kb import KMKKeyboard
 from kmk.keys import KC
 from kmk.modules.layers import Layers
