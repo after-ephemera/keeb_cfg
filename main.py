@@ -3,6 +3,7 @@
 from kb import KMKKeyboard
 from kmk.keys import KC
 from kmk.modules.layers import Layers
+from kmk.modules.power import Power
 from kmk.modules.modtap import ModTap
 from kmk.hid import HIDModes
 from kmk.handlers.sequences import send_string
@@ -10,9 +11,11 @@ import supervisor
 from kmk.extensions.peg_oled_Display import Oled,OledDisplayMode,OledReactionType,OledData
 from kmk.extensions.peg_rgb_matrix import Rgb_matrix
 from kmk.modules.split import Split, SplitSide, SplitType
+power = Power()
 keyboard = KMKKeyboard()
 modtap = ModTap()
 layers_ext = Layers()
+keyboard.modules.append(power)
 keyboard.modules.append(layers_ext)
 keyboard.modules.append(modtap)
 # oled
