@@ -4,7 +4,9 @@ from kb import KMKKeyboard
 from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.power import Power
+from kmk.modules.tapdance import TapDance
 from kmk.modules.modtap import ModTap
+from kmk.modules.combos import Combos, Sequence
 from kmk.hid import HIDModes
 from kmk.handlers.sequences import send_string
 import supervisor
@@ -14,10 +16,15 @@ from kmk.modules.split import Split, SplitSide, SplitType
 power = Power()
 keyboard = KMKKeyboard()
 modtap = ModTap()
+tapdance = TapDance()
+tapdance.tap_time = 200
 layers_ext = Layers()
+combos = Combos()
 keyboard.modules.append(power)
 keyboard.modules.append(layers_ext)
 keyboard.modules.append(modtap)
+keyboard.modules.append(tapdance)
+keyboard.modules.append(combos)
 # oled
 oled_ext = Oled(
     OledData(
@@ -49,7 +56,7 @@ keyboard.keymap = [
             KC.LALT, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,                      KC.Y,    KC.U,    KC.I,    KC.O,    KC.P,    KC.MINUS,
             KC.ESC,  KC.A,    KC.S,    KC.D,    KC.F,    KC.G,                      KC.H,    KC.J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
             KC.LSFT, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,    KC.TAB,  KC.RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.RSFT, 
-                                       LOWER,   KC.LCTL, KC.LGUI, KC.ENT  ,KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
+                                       LOWER,   KC.LCTL, KC.TD(KC.MT(KC.TAB, KC.LGUI), KC.LGUI(KC.TAB)), KC.ENT  ,KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
         ], 
 
         [ # lower
