@@ -62,10 +62,10 @@ keyboard.keymap = [
 
        [ # raise
            KC.N2,   KC.EXLM, KC.AT,   KC.HASH, KC.DLR,  KC.PERC,                   KC.CIRC, KC.AMPR, KC.ASTR, KC.LPRN, KC.RPRN, KC.TILD, 
-           KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS,                   KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.PLUS, KC.UNDS, 
-           KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.COLN, KC.DQUO, KC.TRNS, KC.TRNS, 
-           KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.LCBR, KC.RCBR, KC.TRNS, KC.KP_1, KC.LABK, KC.RABK, KC.QUES, KC.TRNS, KC.LGUI, KC.TRNS,
-                                      KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.RCBR, KC.RCBR, KC.RCBR 
+           KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS,                   KC.TRNS, KC.N7,   KC.N8,   KC.N9,   KC.PLUS, KC.UNDS, 
+           KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS,                   KC.TRNS, KC.N4,   KC.N5,   KC.N6,   KC.N0,   KC.TRNS, 
+           KC.N0,   KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.LCBR, KC.RCBR, KC.TRNS, KC.N1,   KC.N2,   KC.N3,   KC.DOT,  KC.N3, 
+                                      KC.LGUI, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS
        ], 
 
 # unused layers (so far)
