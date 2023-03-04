@@ -6,13 +6,11 @@ from kmk.modules.layers import Layers
 from kmk.modules.power import Power
 from kmk.modules.tapdance import TapDance
 from kmk.modules.modtap import ModTap
-from kmk.modules.combos import Combos, Sequence
+from kmk.modules.combos import Combos
 from kmk.hid import HIDModes
-from kmk.handlers.sequences import send_string
-import supervisor
 from kmk.extensions.peg_oled_Display import Oled,OledDisplayMode,OledReactionType,OledData
 from kmk.extensions.peg_rgb_matrix import Rgb_matrix
-from kmk.modules.split import Split, SplitSide, SplitType
+from kmk.modules.split import Split
 power = Power()
 keyboard = KMKKeyboard()
 modtap = ModTap()
@@ -41,7 +39,8 @@ keyboard.extensions.append(oled_ext)
 rgb_ext = Rgb_matrix(ledDisplay=[[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255]],split=True,rightSide=False,disable_auto_write=True)
 # ledmap
 keyboard.extensions.append(rgb_ext)
-# KMK uses the final character in the name of the drive (luluL or luluR) to determine the side.
+# KMK uses the final character in the name of the drive (luluL or luluR) to 
+# determine the side.
 split = Split(use_pio=True)
 keyboard.modules.append(split)
 
@@ -49,20 +48,23 @@ LOWER = KC.MO(1)
 RAISE = KC.MO(2)
 DLFT = KC.LCTL(KC.LEFT) # Desktop left
 DRGT = KC.LCTL(KC.RIGHT) # Desktop right
+LGUIPP = KC.TD(KC.MT(KC.TAB, KC.LGUI), KC.LGUI(KC.TAB))
+LCTLPP = KC.TD(KC.LCTL, KC.LCTL(KC.TAB))
+Z_SFT = KC.MT(KC.Z, KC.LSFT)
 # keymap
 keyboard.keymap = [ 
         [# qwerty
             KC.TAB,  KC.N1,   KC.N2,   KC.N3,   KC.N4,   KC.N5,                     KC.N6,   KC.N7,   KC.N8,   KC.N9,   KC.N0,   KC.GRAVE,
             KC.LALT, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,                      KC.Y,    KC.U,    KC.I,    KC.O,    KC.P,    KC.MINUS,
             KC.ESC,  KC.A,    KC.S,    KC.D,    KC.F,    KC.G,                      KC.H,    KC.J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
-            KC.LSFT, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,    KC.TAB,  KC.RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.RSFT, 
-                                       LOWER,   KC.LCTL, KC.TD(KC.MT(KC.TAB, KC.LGUI), KC.LGUI(KC.TAB)), KC.ENT  ,KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
+            KC.LSFT, Z_SFT,   KC.X,    KC.C,    KC.V,    KC.B,  KC.LBRC,  KC.RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.RSFT, 
+                                       LOWER,   LCTLPP, LGUIPP, KC.ENT,   KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
         ], 
 
         [ # lower
             KC.F1,   KC.F2,   KC.F3,   KC.F4,   KC.F5,   KC.F6,                     KC.F7,   KC.F8,   KC.F9,   KC.F10,  KC.F11,  KC.F12,
             KC.TILD, KC.TRNS, KC.UP,   KC.TRNS, KC.TRNS, KC.TRNS,                   KC.TRNS, KC.TRNS, KC.TRNS, KC.PIPE, KC.EQUAL,KC.TRNS,
-            KC.TRNS, KC.LEFT, KC.DOWN, KC.RIGHT,KC.TRNS, KC.TRNS,                   KC.LEFT, KC.UP,   KC.DOWN, KC.RIGHT,KC.TRNS, KC.TRNS,
+            KC.TRNS, KC.LEFT, KC.DOWN, KC.RIGHT,KC.TRNS, KC.TRNS,                   KC.LEFT, KC.DOWN,   KC.UP, KC.RIGHT,KC.TRNS, KC.TRNS,
             KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, DLFT,    KC.TRNS, KC.TRNS, DRGT,    KC.TRNS, KC.TRNS,
                                        KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.DEL,  KC.TRNS
         ], 
