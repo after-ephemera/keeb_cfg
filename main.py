@@ -48,16 +48,20 @@ LOWER = KC.MO(1)
 RAISE = KC.MO(2)
 DLFT = KC.LCTL(KC.LEFT) # Desktop left
 DRGT = KC.LCTL(KC.RIGHT) # Desktop right
+# tap once for tab, hold for cmd, double tap for cmd + tab
 LGUIPP = KC.TD(KC.MT(KC.TAB, KC.LGUI), KC.LGUI(KC.TAB))
+# hold for control, double tap for control + tab
 LCTLPP = KC.TD(KC.LCTL, KC.LCTL(KC.TAB))
-Z_SFT = KC.MT(KC.Z, KC.LSFT)
+# tap for square brace, tap twice for curly brace
+LBRC = KC.TD(KC.LBRC, KC.LCBR)
+RBRC = KC.TD(KC.RBRC, KC.RCBR)
 # keymap
 keyboard.keymap = [ 
         [# qwerty
             KC.TAB,  KC.N1,   KC.N2,   KC.N3,   KC.N4,   KC.N5,                     KC.N6,   KC.N7,   KC.N8,   KC.N9,   KC.N0,   KC.GRAVE,
             KC.LALT, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,                      KC.Y,    KC.U,    KC.I,    KC.O,    KC.P,    KC.MINUS,
             KC.ESC,  KC.A,    KC.S,    KC.D,    KC.F,    KC.G,                      KC.H,    KC.J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
-            KC.LSFT, Z_SFT,   KC.X,    KC.C,    KC.V,    KC.B,  KC.LBRC,  KC.RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.RSFT, 
+            KC.LSFT, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,  LBRC,  RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.BSLS, 
                                        LOWER,   LCTLPP, LGUIPP, KC.ENT,   KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
         ], 
 
