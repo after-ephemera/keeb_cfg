@@ -5,7 +5,7 @@ from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.power import Power
 from kmk.modules.tapdance import TapDance
-from kmk.modules.modtap import ModTap
+from kmk.modules.holdtap import HoldTap
 from kmk.modules.combos import Combos
 from kmk.hid import HIDModes
 from kmk.extensions.peg_oled_Display import Oled,OledDisplayMode,OledReactionType,OledData
@@ -13,7 +13,7 @@ from kmk.extensions.peg_rgb_matrix import Rgb_matrix
 from kmk.modules.split import Split
 power = Power()
 keyboard = KMKKeyboard()
-modtap = ModTap()
+modtap = HoldTap()
 tapdance = TapDance()
 tapdance.tap_time = 200
 layers_ext = Layers()
@@ -33,12 +33,8 @@ oled_ext = Oled(
     ),
   toDisplay=OledDisplayMode.TXT,flip=False
 )
-# oled
+# # oled
 keyboard.extensions.append(oled_ext)
-# ledmap
-rgb_ext = Rgb_matrix(ledDisplay=[[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255],[85,0,255],[0,255,234],[0,255,234],[0,255,234],[0,255,234],[85,0,255]],split=True,rightSide=False,disable_auto_write=True)
-# ledmap
-keyboard.extensions.append(rgb_ext)
 # KMK uses the final character in the name of the drive (luluL or luluR) to 
 # determine the side.
 split = Split(use_pio=True)
@@ -49,14 +45,14 @@ RAISE = KC.MO(2)
 DLFT = KC.LCTL(KC.LEFT) # Desktop left
 DRGT = KC.LCTL(KC.RIGHT) # Desktop right
 # tap once for tab, hold for cmd, double tap for cmd + tab
-LGUIPP = KC.TD(KC.MT(KC.TAB, KC.LGUI), KC.LGUI(KC.TAB))
+LGUIPP = KC.TD(KC.HT(KC.TAB, KC.LGUI), KC.LGUI(KC.TAB))
 # hold for control, double tap for control + tab
 LCTLPP = KC.TD(KC.LCTL, KC.LCTL(KC.TAB))
 # tap for square brace, tap twice for curly brace
 LBRC = KC.TD(KC.LBRC, KC.LCBR)
 RBRC = KC.TD(KC.RBRC, KC.RCBR)
 # tap for plus, hold for left alt
-LALT = KC.MT(KC.PLUS, KC.LALT)
+LALT = KC.HT(KC.PLUS, KC.LALT)
 # keymap
 keyboard.keymap = [ 
         [# qwerty
