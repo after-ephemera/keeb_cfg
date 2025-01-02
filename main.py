@@ -14,6 +14,7 @@ from kmk.modules.split import Split
 power = Power()
 keyboard = KMKKeyboard()
 modtap = HoldTap()
+modtap.tap_time = 450
 tapdance = TapDance()
 tapdance.tap_time = 200
 layers_ext = Layers()
