@@ -64,7 +64,7 @@ keyboard.keymap = [
             KC.TAB,  KC.N1,   KC.N2,   KC.N3,   KC.N4,   KC.N5,                     KC.N6,   KC.N7,   KC.N8,   KC.N9,   KC.N0,   KC.GRAVE,
             LALT,    KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,                      KC.Y,    KC.U,    KC.I,    KC.O,    KC.P,    KC.MINUS,
             KC.ESC,  KC.A,    KC.S,    KC.D,    F,    KC.G,                      KC.H,    J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
-            KC.LSFT, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,  LBRC,  RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.BSLS, 
+            KC.TRNS, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,  LBRC,  RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.BSLS, 
                                        LOWER,   LCTLPP, LGUIPP, KC.ENT,   KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
         ], 
 
