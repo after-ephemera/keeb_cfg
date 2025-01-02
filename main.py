@@ -53,12 +53,16 @@ LBRC = KC.TD(KC.LBRC, KC.LCBR)
 RBRC = KC.TD(KC.RBRC, KC.RCBR)
 # tap for plus, hold for left alt
 LALT = KC.HT(KC.PLUS, KC.LALT)
+# tap for f, hold for shift
+F = KC.HT(KC.F, KC.LSFT)
+# tap for j, hold for shift
+J = KC.HT(KC.J, KC.RSFT)
 # keymap
 keyboard.keymap = [ 
         [# qwerty
             KC.TAB,  KC.N1,   KC.N2,   KC.N3,   KC.N4,   KC.N5,                     KC.N6,   KC.N7,   KC.N8,   KC.N9,   KC.N0,   KC.GRAVE,
             LALT,    KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,                      KC.Y,    KC.U,    KC.I,    KC.O,    KC.P,    KC.MINUS,
-            KC.ESC,  KC.A,    KC.S,    KC.D,    KC.F,    KC.G,                      KC.H,    KC.J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
+            KC.ESC,  KC.A,    KC.S,    KC.D,    F,    KC.G,                      KC.H,    J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
             KC.LSFT, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,  LBRC,  RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.BSLS, 
                                        LOWER,   LCTLPP, LGUIPP, KC.ENT,   KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
         ], 
