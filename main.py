@@ -14,7 +14,7 @@ from kmk.modules.split import Split
 power = Power()
 keyboard = KMKKeyboard()
 modtap = HoldTap()
-modtap.tap_time = 450
+modtap.tap_time = 200
 tapdance = TapDance()
 tapdance.tap_time = 200
 layers_ext = Layers()
@@ -55,9 +55,9 @@ RBRC = KC.TD(KC.RBRC, KC.RCBR)
 # tap for plus, hold for left alt
 LALT = KC.HT(KC.PLUS, KC.LALT)
 # tap for f, hold for shift
-F = KC.HT(KC.F, KC.LSFT)
+F = KC.HT(KC.F, KC.LSFT, prefer_hold=False)
 # tap for j, hold for shift
-J = KC.HT(KC.J, KC.RSFT)
+J = KC.HT(KC.J, KC.RSFT, prefer_hold=False)
 # keymap
 keyboard.keymap = [ 
         [# qwerty
