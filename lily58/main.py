@@ -11,6 +11,8 @@ from kmk.hid import HIDModes
 from kmk.extensions.peg_oled_Display import Oled,OledDisplayMode,OledReactionType,OledData
 from kmk.extensions.peg_rgb_matrix import Rgb_matrix
 from kmk.modules.split import Split
+from kmk.modules.sticky_keys import StickyKeys
+
 power = Power()
 keyboard = KMKKeyboard()
 modtap = HoldTap()
@@ -19,11 +21,13 @@ tapdance = TapDance()
 tapdance.tap_time = 200
 layers_ext = Layers()
 combos = Combos()
+sticky_keys = StickyKeys()
 keyboard.modules.append(power)
 keyboard.modules.append(layers_ext)
 keyboard.modules.append(modtap)
 keyboard.modules.append(tapdance)
 keyboard.modules.append(combos)
+keyboard.modules.append(sticky_keys)
 # oled
 oled_ext = Oled(
     OledData(
@@ -54,10 +58,10 @@ LBRC = KC.TD(KC.LBRC, KC.LCBR)
 RBRC = KC.TD(KC.RBRC, KC.RCBR)
 # tap for plus, hold for left alt
 LALT = KC.HT(KC.PLUS, KC.LALT)
-# tap for f, hold for shift
-F = KC.HT(KC.F, KC.LSFT, prefer_hold=False)
-# tap for j, hold for shift
-J = KC.HT(KC.J, KC.RSFT, prefer_hold=False)
+# tap for f, hold for cmd
+F = KC.TD(KC.HT(KC.F, KC.LGUI), KC.LGUI(KC.TAB))
+# tap for j, hold for cmd
+J = KC.HT(KC.J, KC.RGUI)
 # keymap
 keyboard.keymap = [ 
         [# qwerty
@@ -65,7 +69,7 @@ keyboard.keymap = [
             LALT,    KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,                      KC.Y,    KC.U,    KC.I,    KC.O,    KC.P,    KC.MINUS,
             KC.ESC,  KC.A,    KC.S,    KC.D,    F,    KC.G,                      KC.H,    J,    KC.K,    KC.L,    KC.SCLN, KC.QUOTE,
             KC.TRNS, KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,  LBRC,  RBRC, KC.N,    KC.M,    KC.COMM,  KC.DOT,  KC.SLSH, KC.BSLS, 
-                                       LOWER,   LCTLPP, LGUIPP, KC.ENT,   KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
+                                       LOWER,   LCTLPP, KC.SK(KC.LSFT), KC.ENT,   KC.SPC,  KC.BSPC, RAISE,   KC.RGUI
         ], 
 
         [ # lower
