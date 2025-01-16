@@ -59,7 +59,7 @@ RBRC = KC.TD(KC.RBRC, KC.RCBR)
 # tap for plus, hold for left alt
 LALT = KC.HT(KC.PLUS, KC.LALT)
 # tap for f, hold for cmd
-F = KC.TD(KC.HT(KC.F, KC.LGUI), KC.LGUI(KC.TAB))
+F = KC.TD(KC.HT(KC.F, KC.LGUI, prefer_hold=False), KC.LGUI(KC.TAB))
 # tap for j, hold for cmd
 J = KC.HT(KC.J, KC.RGUI)
 # keymap
