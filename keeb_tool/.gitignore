@@ -1,0 +1,11 @@
+# Rust
+/core/target/
+/src-tauri/target/
+**/*.rs.bk
+
+# Node / Vite
+/ui/node_modules/
+/ui/dist/
+
+# OS
+.DS_Store
