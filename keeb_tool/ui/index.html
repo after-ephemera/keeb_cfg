@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lily58 Config Tool</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>⌨ Lily58 Config Tool</h1>
+        <div class="path-row">
+          <input id="config-path" type="text" spellcheck="false"
+                 placeholder="/path/to/lily58/main.py" />
+          <button id="btn-load">Load</button>
+          <button id="btn-save">Save</button>
+          <button id="btn-preview">Preview .py</button>
+        </div>
+        <div id="status" class="status"></div>
+      </header>
+
+      <main>
+        <section id="stage">
+          <div id="layer-tabs" class="tabs"></div>
+          <div id="canvas-wrap"></div>
+          <div class="hint">Drag to orbit · scroll to zoom · click a key to edit</div>
+        </section>
+
+        <aside id="sidebar">
+          <div class="panel" id="editor-panel">
+            <h2>Selected key</h2>
+            <div id="sel-empty" class="muted">Click a key on the board.</div>
+            <div id="sel-body" hidden>
+              <div class="sel-meta">
+                <span id="sel-pos" class="tag"></span>
+                <span id="sel-label" class="glyph"></span>
+              </div>
+              <label>Raw KMK code</label>
+              <input id="sel-raw" type="text" spellcheck="false" />
+              <button id="btn-apply-raw">Apply</button>
+              <div class="palette" id="palette"></div>
+            </div>
+          </div>
+
+          <div class="panel" id="flash-panel">
+            <h2>Flash to keyboard</h2>
+            <button id="btn-scan">Scan for CIRCUITPY</button>
+            <div id="drives" class="drives"></div>
+          </div>
+
+          <div class="panel" id="ferris-panel">
+            <h2>Compact-board suggestion</h2>
+            <div class="row">
+              <select id="target-board">
+                <option value="ferris">Ferris / Sweep (34)</option>
+                <option value="corne">Corne (42)</option>
+              </select>
+              <button id="btn-suggest">Suggest</button>
+            </div>
+            <div id="suggestion"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="preview-modal" class="modal" hidden>
+      <div class="modal-box">
+        <div class="modal-head">
+          <h2>Generated main.py</h2>
+          <button id="btn-close-preview">✕</button>
+        </div>
+        <pre id="preview-text"></pre>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
